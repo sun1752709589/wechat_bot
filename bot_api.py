@@ -23,5 +23,6 @@ deepThought.set_trainer(ChatterBotCorpusTrainer)
 #     return {"response":response}
 @app.route('/chat')
 def chat():
+    user_input = request.args.get('q','')
     response = deepThought.get_response(user_input).text
     return {"response":response}
