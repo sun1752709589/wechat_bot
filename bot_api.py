@@ -3,7 +3,10 @@
 
 from chatterbot import ChatBot
 from chatterbot.trainers import ChatterBotCorpusTrainer
-import hug
+# import hug
+from flask import Flask
+
+app = Flask(__name__)
 
 
 deepThought = ChatBot("deepThought")
@@ -14,7 +17,11 @@ deepThought.train("chatterbot.corpus.chinese")  # 语料库
 
 # todo 用一个小巧的 flask
 
-@hug.get()
-def get_response(user_input):
+# @hug.get()
+# def get_response(user_input):
+#     response = deepThought.get_response(user_input).text
+#     return {"response":response}
+@app.route('/chat')
+def chat():
     response = deepThought.get_response(user_input).text
     return {"response":response}
