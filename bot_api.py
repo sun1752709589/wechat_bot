@@ -4,7 +4,7 @@
 from chatterbot import ChatBot
 from chatterbot.trainers import ChatterBotCorpusTrainer
 # import hug
-from flask import Flask
+from flask import Flask,request
 
 app = Flask(__name__)
 
