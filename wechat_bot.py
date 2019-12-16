@@ -8,7 +8,7 @@ import requests
 import threading
 
 # todo 用另一个进程把服务起来
-bot_api="http://127.0.0.1:8000/get_response"
+bot_api="http://0.0.0.0:8000/get_response"
 
 # 带对象参数注册，对应消息对象将调用该方法
 @itchat.msg_register(TEXT, isFriendChat=True )
@@ -42,7 +42,7 @@ def bot_server():
         res = {"response":d_response}
         return dumps(res)
 
-    run(app, host='localhost', port=8000)
+    run(app, host='0.0.0.0', port=8000)
 
 
 
